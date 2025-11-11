@@ -44,8 +44,6 @@ public class Project {
     @JoinColumn(name = "assigned_team_id")
     private Team assignedTeam;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     @Default
     private List<Task> tasks = new ArrayList<>();

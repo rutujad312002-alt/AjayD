@@ -36,6 +36,10 @@ public class Team {
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_lead_id")
+    private User teamLeadId;
+
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     @Default
     private List<TeamMember> members = new ArrayList<>();
