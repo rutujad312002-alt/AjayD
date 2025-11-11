@@ -106,9 +106,9 @@ public class UserDashboardServiceImpl implements UserDashboardService {
         return new UserProfileDTO(); // Add actual implementation
     }
 
-    private Timeline getTimeline(User user) {
+    private TimelineDTO getTimeline(User user) {
         // Implementation for getting timeline
-        return new Timeline(); // Add actual implementation
+        return TimelineDTO.builder().build();
     }
 
     private List<ProgressUpdateDTO> getProgressUpdates(User user) {
