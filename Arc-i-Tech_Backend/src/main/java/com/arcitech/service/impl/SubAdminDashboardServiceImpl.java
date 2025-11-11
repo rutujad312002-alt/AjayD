@@ -42,7 +42,8 @@ public class SubAdminDashboardServiceImpl implements SubAdminDashboardService {
             .active(true)
             .build();
         @SuppressWarnings("null")
-        Team savedTeam = teamRepository.save(team);
+        Team saved = teamRepository.save(team);
+        // Method completes team creation
     }
 
     @Override
@@ -56,7 +57,7 @@ public class SubAdminDashboardServiceImpl implements SubAdminDashboardService {
 
         // Note: Requires TeamMemberRepository - implement proper member addition here
         @SuppressWarnings("null")
-        Team saved = teamRepository.save(team);
+        Team ignored = teamRepository.save(team);
     }
 
     @Override
@@ -70,7 +71,7 @@ public class SubAdminDashboardServiceImpl implements SubAdminDashboardService {
 
         // Note: Requires TeamMemberRepository - implement proper member removal here
         @SuppressWarnings("null")
-        Team saved = teamRepository.save(team);
+        Team ignored2 = teamRepository.save(team);
     }
 
     @Override
