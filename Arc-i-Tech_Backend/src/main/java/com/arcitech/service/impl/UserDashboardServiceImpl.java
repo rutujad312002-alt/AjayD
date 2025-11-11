@@ -103,7 +103,7 @@ public class UserDashboardServiceImpl implements UserDashboardService {
 
     private UserProfileDTO getUserProfile(User user) {
         // Implementation for getting user profile
-        return new UserProfileDTO(); // Add actual implementation
+        return UserProfileDTO.builder().build();
     }
 
     private TimelineDTO getTimeline(User user) {
