@@ -14,8 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserDashboardServiceImpl implements UserDashboardService {
     private final UserRepository userRepository;
-    private final ProjectRepository projectRepository;
-    private final CertificateRepository certificateRepository;
 
     @Override
     @Transactional(readOnly = true)

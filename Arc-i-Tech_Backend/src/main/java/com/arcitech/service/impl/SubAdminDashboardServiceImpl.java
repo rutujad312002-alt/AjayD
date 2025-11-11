@@ -124,7 +124,6 @@ public class SubAdminDashboardServiceImpl implements SubAdminDashboardService {
     }
 
     @Override
-    @Override
     @Transactional
     public void scheduleMeeting(String teamId, String dateTime, String agenda) {
         // Implementation for scheduling meeting
