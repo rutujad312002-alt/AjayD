@@ -1,7 +1,6 @@
 package com.arcitech.service.impl;
 
 import com.arcitech.dto.dashboard.*;
-import com.arcitech.model.*;
 import com.arcitech.repository.*;
 import com.arcitech.service.dashboard.UserDashboardService;
 import lombok.RequiredArgsConstructor;
@@ -18,18 +17,10 @@ public class UserDashboardServiceImpl implements UserDashboardService {
     @Override
     @Transactional(readOnly = true)
     public UserDashboardDTO getDashboardData(String userId) {
-        User user = userRepository.findById(Long.parseLong(userId))
+        userRepository.findById(Long.parseLong(userId))
             .orElseThrow(() -> new RuntimeException("User not found"));
 
         return UserDashboardDTO.builder()
-            .userProfile(getUserProfile(user))
-            .timeline(getTimeline(user))
-            .progressUpdates(getProgressUpdates(user))
-            .deliverables(getDeliverables(user))
-            .trainingSessions(getTrainingSessions(user))
-            .learningMaterials(getLearningMaterials(user))
-            .testResults(getTestResults(user))
-            .skillProgress(getSkillProgress(user))
             .build();
     }
 
@@ -96,46 +87,6 @@ public class UserDashboardServiceImpl implements UserDashboardService {
     @Override
     public SkillProgressDTO getPersonalSkillProgress() {
         // Implementation for getting personal skill progress
-        return new SkillProgressDTO(); // Add actual implementation
-    }
-
-    private UserProfileDTO getUserProfile(User user) {
-        // Implementation for getting user profile
-        return UserProfileDTO.builder().build();
-    }
-
-    private TimelineDTO getTimeline(User user) {
-        // Implementation for getting timeline
-        return TimelineDTO.builder().build();
-    }
-
-    private List<ProgressUpdateDTO> getProgressUpdates(User user) {
-        // Implementation for getting progress updates
-        return List.of(); // Add actual implementation
-    }
-
-    private List<DeliverableDTO> getDeliverables(User user) {
-        // Implementation for getting deliverables
-        return List.of(); // Add actual implementation
-    }
-
-    private List<TrainingSessionDTO> getTrainingSessions(User user) {
-        // Implementation for getting training sessions
-        return List.of(); // Add actual implementation
-    }
-
-    private List<LearningMaterialDTO> getLearningMaterials(User user) {
-        // Implementation for getting learning materials
-        return List.of(); // Add actual implementation
-    }
-
-    private List<TestResultDTO> getTestResults(User user) {
-        // Implementation for getting test results
-        return List.of(); // Add actual implementation
-    }
-
-    private SkillProgressDTO getSkillProgress(User user) {
-        // Implementation for getting skill progress
-        return new SkillProgressDTO(); // Add actual implementation
+        return SkillProgressDTO.builder().build();
     }
 }

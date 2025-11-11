@@ -2,7 +2,6 @@ package com.arcitech.service.impl;
 
 import com.arcitech.dto.dashboard.*;
 import com.arcitech.model.*;
-import com.arcitech.model.enums.UserRole;
 import com.arcitech.repository.*;
 import com.arcitech.service.dashboard.SuperAdminDashboardService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,6 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +20,6 @@ public class SuperAdminDashboardServiceImpl implements SuperAdminDashboardServic
     private final TeamRepository teamRepository;
     private final ProjectRepository projectRepository;
     private final ServiceRepository serviceRepository;
-    private final ServiceCategoryRepository serviceCategoryRepository;
-    private final CertificateRepository certificateRepository;
 
     @Override
     @Transactional(readOnly = true)
@@ -51,7 +47,8 @@ public class SuperAdminDashboardServiceImpl implements SuperAdminDashboardServic
             .name(name)
             .active(true)
             .build();
-        userRepository.save(subAdmin);
+        @SuppressWarnings("null")
+        User _saved = userRepository.save(subAdmin);
     }
 
     @Override
